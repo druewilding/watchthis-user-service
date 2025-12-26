@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.2](https://github.com/druewilding/watchthis-user-service/compare/v3.0.1...v3.0.2) (2025-12-26)
+
+
+### Chores
+
+* Change to Drue Wilding ([#186](https://github.com/druewilding/watchthis-user-service/issues/186)) ([2e01b8a](https://github.com/druewilding/watchthis-user-service/commit/2e01b8a040d0b36d16ff0912609d8830b439bd1b))
+
 ## [3.0.1](https://github.com/druewilding/watchthis-user-service/compare/v3.0.0...v3.0.1) (2025-10-20)
 
 
