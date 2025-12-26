@@ -23,7 +23,7 @@ jobs:
       contents: read
       packages: write
       id-token: write
-    uses: aimeerivers/shared/.github/workflows/docker-build-publish.yml@main
+    uses: druewilding/shared/.github/workflows/docker-build-publish.yml@main
     with:
       service_name: watchthis-user-service
       dockerfile_path: ./Dockerfile

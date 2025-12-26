@@ -4,7 +4,7 @@
   "description": "User management service for WatchThis",
   "keywords": [],
   "license": "ISC",
-  "author": "",
+  "author": "Drue Wilding",
   "files": [
     "dist/src",
     "public",
