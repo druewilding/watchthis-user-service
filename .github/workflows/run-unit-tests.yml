@@ -39,6 +39,10 @@ jobs:
 
       - name: Set up test database
         run: npm run database:test:setup
+        env:
+          DATABASE_URL: postgresql://watchthis:watchthis_dev@localhost:5432/watchthis_user_test
 
       - name: Run unit tests
         run: npm run test
+        env:
+          DATABASE_URL: postgresql://watchthis:watchthis_dev@localhost:5432/watchthis_user_test

@@ -2,3 +2,4 @@
 CHANGELOG.md
 package-lock.json
 public/styles/style.css
+src/generated/prisma
