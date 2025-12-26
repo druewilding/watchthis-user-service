@@ -3,8 +3,20 @@ import bcrypt from "bcrypt";
 
 import { PrismaClient } from "../generated/prisma/client.js";
 
+const databaseUrl = process.env.DATABASE_URL;
+if (!databaseUrl) {
+  throw new Error("DATABASE_URL environment variable is required");
+}
+
+const url = new URL(databaseUrl);
+if (!url.password) {
+  throw new Error(
+    "DATABASE_URL must include a password in the format: postgresql://username:password@host:port/database"
+  );
+}
+
 const adapter = new PrismaPg({
-  connectionString: process.env.DATABASE_URL,
+  connectionString: databaseUrl,
 });
 const prisma = new PrismaClient({ adapter });
 
