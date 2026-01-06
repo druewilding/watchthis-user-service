@@ -1,10 +1,7 @@
 import crypto from "crypto";
-import dotenv from "dotenv";
 import jwt, { type SignOptions } from "jsonwebtoken";
 
 import type { IUser } from "../models/user.js";
-
-dotenv.config();
 
 // JWT configuration
 const JWT_SECRET = process.env.JWT_SECRET ?? crypto.randomBytes(64).toString("hex");
