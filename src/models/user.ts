@@ -1,7 +1,12 @@
 import { PrismaPg } from "@prisma/adapter-pg";
 import bcrypt from "bcrypt";
+import dotenv from "dotenv";
 
 import { PrismaClient } from "../generated/prisma/client.js";
+
+// Load environment variables based on NODE_ENV
+const envFile = process.env.NODE_ENV === "test" ? ".env.test" : ".env";
+dotenv.config({ path: envFile });
 
 const databaseUrl = process.env.DATABASE_URL;
 if (!databaseUrl) {
