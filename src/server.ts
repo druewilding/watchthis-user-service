@@ -1,3 +1,5 @@
+import "../env.js";
+
 import { app } from "./app.js";
 const port = process.env.PORT || 8583;
 
