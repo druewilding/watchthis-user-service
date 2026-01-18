@@ -19,7 +19,6 @@ on:
 
 jobs:
   docker-build-publish:
-    runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
