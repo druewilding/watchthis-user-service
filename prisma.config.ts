@@ -1,4 +1,4 @@
-import "dotenv/config";
+import "./env";
 
 import { defineConfig, env } from "@prisma/config";
 

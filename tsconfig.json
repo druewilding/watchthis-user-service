@@ -1,6 +1,6 @@
 {
   "extends": "eslint-config-plus-prettier/tsconfig",
-  "include": ["src", "test"],
+  "include": ["env.ts", "src", "test"],
   "compilerOptions": {
     "outDir": "dist",
     "typeRoots": ["./node_modules/@types", "./test/types"]
