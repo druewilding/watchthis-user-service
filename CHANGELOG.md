@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.3](https://github.com/druewilding/watchthis-user-service/compare/v3.0.2...v3.0.3) (2026-01-18)
+
+
+### Bug Fixes
+
+* Skip publishing Docker image for forked PRs ([#195](https://github.com/druewilding/watchthis-user-service/issues/195)) ([1684bf5](https://github.com/druewilding/watchthis-user-service/commit/1684bf5605366658980498020ca3ca9ef30270f3))
+
 ## [3.0.2](https://github.com/druewilding/watchthis-user-service/compare/v3.0.1...v3.0.2) (2025-12-26)
 
 
