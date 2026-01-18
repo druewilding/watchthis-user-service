@@ -146,7 +146,7 @@ describe("Watch This User Service - All Tests", () => {
         username = generateValidUsername();
         password = generateValidPassword();
 
-        const user = await User.create({
+        await User.create({
           username,
           password,
         });
@@ -173,13 +173,13 @@ describe("Watch This User Service - All Tests", () => {
       });
 
       it("should not be able to log in with incorrect password", async () => {
-        const res = await request(app).post("/login").type("form").send({ username, password: "wrongpassword" });
+        const res = await request(app).post("/login").type("form").send({ username, password: "wrongPassword" });
         assert.equal(res.statusCode, 302);
         assert.equal(res.headers.location, "/login");
       });
 
       it("should not be able to log in with invalid username", async () => {
-        const res = await request(app).post("/login").type("form").send({ username: "invalidusername", password });
+        const res = await request(app).post("/login").type("form").send({ username: "invalidUsername", password });
         assert.equal(res.statusCode, 302);
         assert.equal(res.headers.location, "/login");
       });
@@ -195,7 +195,7 @@ describe("Watch This User Service - All Tests", () => {
         username = generateValidUsername();
         password = generateValidPassword();
 
-        const user = await User.create({
+        await User.create({
           username,
           password,
         });
@@ -269,7 +269,7 @@ describe("Watch This User Service - All Tests", () => {
       const username = generateValidUsername();
       const password = generateValidPassword();
 
-      const user = await User.create({ username, password });
+      await User.create({ username, password });
 
       // Log in
       await testSession.post("/login").send({ username, password });
@@ -316,7 +316,7 @@ describe("Watch This User Service - All Tests", () => {
           username = generateValidUsername();
           password = generateValidPassword();
 
-          const user = await User.create({
+          await User.create({
             username,
             password,
           });
@@ -551,7 +551,7 @@ describe("Watch This User Service - All Tests", () => {
       });
 
       it("should handle Authorization header without Bearer prefix", async () => {
-        const res = await request(app).get("/api/v1/auth/me").set("Authorization", "sometoken").expect(401);
+        const res = await request(app).get("/api/v1/auth/me").set("Authorization", "someToken").expect(401);
 
         assert.equal(res.body.success, false);
       });
@@ -626,7 +626,7 @@ describe("Watch This User Service - All Tests", () => {
       });
 
       it("should fail with missing password", async () => {
-        const res = await request(app).post("/api/v1/auth/login").send({ username: "testuser" }).expect(400);
+        const res = await request(app).post("/api/v1/auth/login").send({ username: "testUser" }).expect(400);
 
         assert.equal(res.body.success, false);
         assert.equal(res.body.error.code, "MISSING_CREDENTIALS");
@@ -635,7 +635,7 @@ describe("Watch This User Service - All Tests", () => {
       it("should fail with invalid username", async () => {
         const res = await request(app)
           .post("/api/v1/auth/login")
-          .send({ username: "nonexistent", password: "password123" })
+          .send({ username: "nonExistent", password: "password123" })
           .expect(401);
 
         assert.equal(res.body.success, false);
@@ -647,11 +647,11 @@ describe("Watch This User Service - All Tests", () => {
         // Create a test user
         const username = generateValidUsername();
         const password = generateValidPassword();
-        const user = await User.create({ username, password });
+        await User.create({ username, password });
 
         const res = await request(app)
           .post("/api/v1/auth/login")
-          .send({ username, password: "wrongpassword" })
+          .send({ username, password: "wrongPassword" })
           .expect(401);
 
         assert.equal(res.body.success, false);
@@ -664,7 +664,7 @@ describe("Watch This User Service - All Tests", () => {
         // Create a test user and get tokens
         const username = generateValidUsername();
         const password = generateValidPassword();
-        const user = await User.create({ username, password });
+        await User.create({ username, password });
 
         const loginRes = await request(app).post("/api/v1/auth/login").send({ username, password }).expect(200);
 
@@ -710,7 +710,7 @@ describe("Watch This User Service - All Tests", () => {
         // Create a test user and get tokens
         const username = generateValidUsername();
         const password = generateValidPassword();
-        const user = await User.create({ username, password });
+        await User.create({ username, password });
 
         const loginRes = await request(app).post("/api/v1/auth/login").send({ username, password }).expect(200);
 
@@ -893,7 +893,7 @@ describe("Watch This User Service - All Tests", () => {
         // Create a test user and session
         const username = generateValidUsername();
         const password = generateValidPassword();
-        const user = await User.create({ username, password });
+        await User.create({ username, password });
 
         const testSession = session(app);
         await testSession.post("/login").send({ username, password }).expect(302);
@@ -936,7 +936,7 @@ describe("Watch This User Service - All Tests", () => {
         // Create a test user
         const username = generateValidUsername();
         const password = generateValidPassword();
-        const user = await User.create({ username, password });
+        await User.create({ username, password });
 
         // Test JWT auth works
         const jwtRes = await request(app).post("/api/v1/auth/login").send({ username, password }).expect(200);
